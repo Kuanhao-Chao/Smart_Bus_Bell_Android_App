@@ -20,8 +20,6 @@ import com.example.android.map.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.android.map.MapsActivity.shareBusStopLocationId;
-
 /**
  * Created by Howard on 2017/7/15.
  */
@@ -35,7 +33,8 @@ public class CallTheBus_directly extends AppCompatActivity {
     //private List<BusParameter>busList = new ArrayList<BusParameter>();
     private static String busNumber = new String();
 
-    public static String BusStopLocationId = "";
+//    private static String shareBusStopLocationId = "";
+    private static String BusStopLocationId = "";
     //the value that get when the user is in the stop and click the bus stop.
     //the value will be change once the user click the bus stop.
     //this value will be send to call the bus when the user click the button " call the bus".
@@ -68,6 +67,8 @@ public class CallTheBus_directly extends AppCompatActivity {
 //        busList.add(new BusParameter(/*R.drawable.color_black,*/ "4 mins", "低底盤公車", "台北車站", "南港", "藍114"));
 //        busList.add(new BusParameter(/*R.drawable.color_black,*/"4 mins", "低底盤公車", "台北車站", "南港", "藍114"));
 
+        Intent intent = this.getIntent();
+        BusStopLocationId = intent.getStringExtra("shareBusStopLocationId");
         ListView callTheBusDirectlyListView = findViewById(R.id.list);
         mAdapter = new BusParameterAdaptor(this, new ArrayList<BusParameter>());
         callTheBusDirectlyListView.setAdapter(mAdapter);
@@ -79,6 +80,10 @@ public class CallTheBus_directly extends AppCompatActivity {
                 BusStopLocationId = result.get(0).getmStopLocationId();
                 Intent theButtons = new Intent();
                 theButtons.setClass(CallTheBus_directly.this, ClickButtonsToCallBus.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("BusStopLocationId", BusStopLocationId);
+                bundle.putString("busNumber", busNumber);
+                theButtons.putExtras(bundle);
                 startActivity(theButtons);
             }
         });
@@ -113,8 +118,7 @@ public class CallTheBus_directly extends AppCompatActivity {
             double currentLongitude;
             //currentLatitude = mcurrentLatitude;
             //currentLongitude = mcurrentLongitude;
-            busStopLocationId = shareBusStopLocationId;
-            urls[0] = urls[0] + String.valueOf(busStopLocationId);
+            urls[0] = urls[0] + BusStopLocationId;
             //urls[1] = urls[1] + currentLatitude +'/' + currentLongitude;
             Log.i(LOG_TAG, urls[0]);
             //Log.i(LOG_TAG, urls[1]);

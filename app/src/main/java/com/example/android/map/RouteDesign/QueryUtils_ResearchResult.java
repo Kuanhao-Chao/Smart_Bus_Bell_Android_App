@@ -3,7 +3,6 @@ package com.example.android.map.RouteDesign;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.example.android.map.BusList.BusParameter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -109,7 +108,7 @@ public final class QueryUtils_ResearchResult {
                 String getEstimateTime = elementsWrapper.getString("EstimateTime");
                 JSONObject end = elementsWrapper.getJSONObject("end");
                 String getEndNameZh = end.getString("nameZh");
-//                int getEndRouteId = end.getInt("routeId");
+//                String getEndRouteId = String.valueOf(end.getInt("routeId"));
 //                int getEndStopLocationId = end.getInt("stopLocationId");
 //                double getEndLatitude = end.getDouble("latitude");
 //                double getEndlongitude = end.getDouble("longitude");
@@ -122,10 +121,10 @@ public final class QueryUtils_ResearchResult {
 //                double getStartLatitude = start.getDouble("latitude");
 //                double getStartLongitude = start.getDouble("longitude");
                 String getStartNameZh = start.getString("nameZh");
-//                int getStopLocationIs = start.getInt("stopLocationId");
+                String getStopLocationIs = String.valueOf(start.getInt("stopLocationId"));
                 String getTo = elementsWrapper.getString("to");
 
-                SearchParameter_directly searchParameter_directly = new SearchParameter_directly( getEstimateTime, getNumber, getFrom, getTo, getEndNameZh, getStartNameZh );
+                SearchParameter_directly searchParameter_directly = new SearchParameter_directly( getEstimateTime, getNumber, getFrom, getTo, getEndNameZh, getStartNameZh,getStopLocationIs );
 
                 directlyList.add(searchParameter_directly);
 //            }

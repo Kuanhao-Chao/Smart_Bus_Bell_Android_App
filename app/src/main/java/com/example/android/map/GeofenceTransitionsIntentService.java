@@ -1,7 +1,6 @@
 package com.example.android.map;
 
 import android.app.IntentService;
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
@@ -14,19 +13,14 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.ListView;
 
-import com.example.android.map.AllBusStopInfo.SetJSONToArrayList;
 import com.example.android.map.GeoIntentService.GeoFenceErrorMessage;
-import com.example.android.map.MapsActivity;
-import com.example.android.map.R;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingEvent;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.os.Build.VERSION_CODES.M;
 import static com.example.android.map.MapsActivity.buttonChecker;
 
 /**

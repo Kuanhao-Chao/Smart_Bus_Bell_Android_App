@@ -1,5 +1,6 @@
 package com.example.android.map.RouteDesign;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,9 +11,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.android.map.Buttons.ClickButtonsToCallBus;
 import com.example.android.map.R;
 
 import java.util.ArrayList;
@@ -46,6 +49,10 @@ public class List_Google_Route extends Fragment {
     private ListView callTheBusGoogleListView;
     private static List<SearchParameter_Google> result = new ArrayList<SearchParameter_Google>();
 
+    private static String busNumber = new String();
+    private static String BusStopLocationId = new String();
+    private static String RouteId = new String();
+
 //    public List_Google_Route(){
 //
 //    }
@@ -62,6 +69,24 @@ public class List_Google_Route extends Fragment {
         }
         answerYouEnter = UserInput;
         getCallTheBusGoogleListView();
+        callTheBusGoogleListView = (ListView) view.findViewById(R.id.list_google);
+        mAdapter = new SearchParameter_google_Adapter(getActivity(), new ArrayList<SearchParameter_Google>());
+        callTheBusGoogleListView.setAdapter(mAdapter);
+        callTheBusGoogleListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+//                RouteId = result.get((int)id).getgRouteId();
+                busNumber = result.get((int)id).getgNumber();
+                BusStopLocationId = result.get((int)id).getgBusStopLocationId();
+                Intent intent = new Intent(getActivity(), ClickButtonsToCallBus.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("RouteId", RouteId);
+                bundle.putString("BusStopLocationId",BusStopLocationId);
+                bundle.putString("busNumber",busNumber);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
@@ -92,7 +117,7 @@ public class List_Google_Route extends Fragment {
         protected  void onPostExecute(List<SearchParameter_Google> data ){
 //            data = new SearchParameter(null, null);
 //            data = result;
-            mAdapter = new SearchParameter_google_Adapter(getActivity(), new ArrayList<SearchParameter_Google>());
+//            mAdapter = new SearchParameter_google_Adapter(getActivity(), new ArrayList<SearchParameter_Google>());
 //                mAdapter.clear();
 //            if ( data != null ){
 //                List<SearchParameter_Google>data_of_google_route = new ArrayList<SearchParameter_Google>();
@@ -101,7 +126,7 @@ public class List_Google_Route extends Fragment {
                     //data_of_google_route = result.getmSearchParameter_google();
 //                mAdapter.addAll(data);
 //                }
-                callTheBusGoogleListView = (ListView) getActivity().findViewById(R.id.list_google);
+//                callTheBusGoogleListView = (ListView) getActivity().findViewById(R.id.list_google);
                 mAdapter = new SearchParameter_google_Adapter(getActivity(), data);
 //                mAdapter.notifyDataSetChanged();
 //                mAdapter.notifyDataSetInvalidated();

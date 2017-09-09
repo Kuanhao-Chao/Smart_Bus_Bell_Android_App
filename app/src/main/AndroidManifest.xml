@@ -12,6 +12,7 @@
         android:required="true"/>
 
     <application
+        android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -38,7 +39,7 @@
             android:value="@string/google_maps_key" />
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"
+            android:label="智慧公車上車鈴"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,14 +47,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BusList.CallTheBus_directly" android:label="公車列"/>
+        <activity android:name=".BusList.CallTheBus_directly" android:label="本站公車列"/>
         <activity android:name=".Buttons.ClickButtonsToCallBus" android:label="上車鈴"/>
         <activity android:name=".Success_Screen_Cancel_Screen.NormalCall" android:label="叫車"/>
         <activity android:name=".Success_Screen_Cancel_Screen.Help" android:label="叫車"/>
         <activity android:name=".CancelBell.Cancel_Bus_Successfully" android:label="取消叫車"/>
-        <activity android:name=".RouteDesign.SearchResult" android:label="搜尋結果"/>
-        <activity android:name=".RouteDesign.List_Google_Route" android:label="轉乘公車（Google規劃）"/>
-        <activity android:name=".RouteDesign.List_Directly_Route" android:label="直達公車（自行規劃）"/>
+        <activity android:name=".RouteDesign.SearchResult" android:label="路經規劃"/>
 
         <service android:name=".GeofenceTransitionsIntentService"/>
 

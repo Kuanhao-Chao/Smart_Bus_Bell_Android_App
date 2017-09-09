@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ECF5FF"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:text="com.example.android.map.ClickButtonsToCallBus">
@@ -11,67 +13,69 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="370dp"
-        android:layout_height="386dp"
-        map:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
-        map:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        map:layout_constraintLeft_toLeftOf="parent"
-        map:layout_constraintHorizontal_bias="0.0"
-        map:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        map:layout_constraintVertical_bias="0.0"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
         map:cameraTargetLat="25.0392"
         map:cameraTargetLng="121.5300"
         map:cameraBearing="0"
         map:cameraTilt="0"
-        map:cameraZoom="7"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
-    <ImageView
-        android:layout_width="95dp"
-        android:layout_height="95dp"
-        android:src="@drawable/busstop"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="394dp"
-        android:layout_marginLeft="35dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:id="@+id/normalCall" />
-    <ImageView
-        android:layout_width="117dp"
-        android:layout_height="76dp"
-        android:src="@drawable/help"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="407dp"
-        android:layout_marginRight="18dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:id="@+id/help"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.966" />
+        map:cameraZoom="7" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:src="@drawable/busstop"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_weight="5"
+                android:id="@+id/normalCall"
+                android:layout_gravity="center_horizontal|center_vertical"/>
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="一般叫車"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"
+                android:layout_gravity="center_horizontal|center_vertical"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:src="@drawable/help"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:padding="6dp"
+            android:id="@+id/help"
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="特別叫車"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="7dp"
-        android:layout_marginRight="44dp"
-        app:layout_constraintRight_toRightOf="parent" />
+            android:layout_gravity="center_horizontal|center_vertical"/>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="一般叫車"
-        android:textSize="18sp"
-        android:layout_marginLeft="51dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="特別叫車"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"
+            android:layout_gravity="center_horizontal|center_vertical"/>
+        </LinearLayout>
+    </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

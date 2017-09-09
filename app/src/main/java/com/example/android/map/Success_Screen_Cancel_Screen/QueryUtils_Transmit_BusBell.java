@@ -27,7 +27,7 @@ import java.util.List;
 
 //the helper function relating to requesting nad receiving the data from Azure
 public final class QueryUtils_Transmit_BusBell {
-    private static final String LOG_TAG = QueryUtils.class.getSimpleName();
+    private static final String LOG_TAG = QueryUtils_Transmit_BusBell.class.getSimpleName();
     private  QueryUtils_Transmit_BusBell(){
     }
 

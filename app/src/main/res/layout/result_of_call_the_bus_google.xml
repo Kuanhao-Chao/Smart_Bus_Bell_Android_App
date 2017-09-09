@@ -6,20 +6,21 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:layout_gravity="center_horizontal">
+
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/IDImageBusGoogle"
             android:layout_width="36dp"
-            android:layout_height="46dp"
+            android:layout_height="58dp"
             android:layout_gravity="center_vertical"
-            android:layout_weight="0.18"
-            android:src="@drawable/bluebus" />
+            android:layout_weight="0.07"
+            android:src="@drawable/google_logo" />
 
         <LinearLayout
             android:id="@+id/IDmiddle"
@@ -28,7 +29,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_weight="3"
+            android:layout_weight="7"
             android:orientation="vertical">
 
             <LinearLayout
@@ -41,7 +42,7 @@
                     android:id="@+id/IDBusNumberGoogle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
+
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-medium"
                     android:gravity="center|bottom"
@@ -58,46 +59,61 @@
                     android:orientation="horizontal">
 
 
-
                     <TextView
                         android:id="@+id/IDinWordGoogle"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_margin="5dp"
+
                         android:layout_weight="1"
                         android:gravity="bottom|center"
                         android:paddingLeft="12dp"
-                        android:textSize="12sp"
                         android:textColor="#424242"
+                        android:textSize="12sp"
                         tool:text="往" />
+
+                    <TextView
+                        android:id="@+id/IDTo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="4"
+                        android:gravity="bottom|center"
+                        android:paddingLeft="12dp"
+                        android:textColor="#424242"
+                        android:textSize="12sp"
+                        tool:text="南港" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/IDStartGoogle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_weight="1"
-                    android:gravity="bottom"
+                    android:gravity="center_horizontal|center_vertical"
                     android:paddingLeft="12dp"
-                    android:textSize="12sp"
                     android:textColor="#424242"
-                    tool:text="起站:" />
+                    android:textSize="12sp"
+                    tool:text="起站:"/>
 
                 <TextView
                     android:id="@+id/IDStartGoogleStop"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_weight="1.5"
-                    android:gravity="right|bottom"
+                    android:gravity="center_horizontal|center_vertical"
                     android:paddingLeft="12dp"
-                    android:textSize="12sp"
                     android:textColor="#424242"
+
+                    android:textSize="12sp"
 
                     tool:text="台北車站" />
 
@@ -105,8 +121,9 @@
                     android:id="@+id/IDEndGoogle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_weight="1"
-                    android:gravity="bottom"
+                    android:gravity="center_horizontal|center_vertical"
                     android:paddingLeft="12dp"
                     android:textColor="#424242"
                     android:textSize="12sp"
@@ -116,27 +133,29 @@
                     android:id="@+id/IDEndGoogleStop"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_weight="1.5"
-                    android:gravity="bottom"
+                    android:gravity="center_horizontal|center_vertical"
                     android:paddingLeft="12dp"
-                    android:textSize="12sp"
                     android:textColor="#424242"
+                    android:textSize="12sp"
                     tool:text="南港" />
             </LinearLayout>
 
         </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/IDMinuteGoogle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tool:text="4 mins"
-                android:layout_gravity="center_vertical"
-                android:textColor="#424242"
-                android:textSize="22dp" />
+        <TextView
+            android:id="@+id/IDMinuteGoogle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:textColor="#424242"
+            android:textSize="16dp"
+            tool:text="4 mins" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -145,16 +164,19 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:gravity="center"
-            tool:text="指示："/>
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center_horizontal|center_vertical"
+            tool:text="指示:"/>
         <TextView
             android:id="@+id/IDInstructionContent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
             tool:text="instruction"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:layout_gravity="center_horizontal" />
+            android:textSize="15sp"
+            android:layout_gravity="center_horizontal|center_vertical"
+
+            android:gravity="center_horizontal|center_vertical"
+/>
     </LinearLayout>
 </LinearLayout>

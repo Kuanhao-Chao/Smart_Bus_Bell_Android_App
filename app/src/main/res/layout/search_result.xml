@@ -4,17 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ECF5FF">
     <RelativeLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent">
     <RelativeLayout
         android:id="@+id/tv_rellayout_up"
-        android:layout_width="368dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tool:layout_editor_absoluteY="0dp"
         tool:layout_editor_absoluteX="8dp">
@@ -23,13 +22,12 @@
 
     <RelativeLayout
         android:id="@+id/tv_rellayout_middle"
-        android:layout_width="0dp"
+        android:layout_below="@+id/tv_rellayout_up"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        tool:layout_editor_absoluteY="0dp"
-        tool:layout_editor_absoluteX="8dp">
+        android:layout_alignParentStart="true">
 
         <include layout="@layout/layout_center_viewpagers"/>
 

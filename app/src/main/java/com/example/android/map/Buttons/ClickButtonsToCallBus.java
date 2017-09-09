@@ -15,7 +15,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.android.map.BusList.CallTheBus_directly;
 import com.example.android.map.R;
 import com.example.android.map.Success_Screen_Cancel_Screen.Help;
 import com.example.android.map.Success_Screen_Cancel_Screen.NormalCall;
@@ -64,15 +63,17 @@ public class ClickButtonsToCallBus extends AppCompatActivity implements OnMapRea
     private static final int DEFAULT_ZOOM = 12;
     private static final LatLng mDefaultLocation = new LatLng(25.0392,121.5300);
     private static final String SECOND_URL_REQUEST = "http://192.168.0.110:5000/howard/";
-    private CallTheBus_directly callTheBus_directly = new CallTheBus_directly();
     //private List<String> data = new ArrayList<>();
 
     private int theNumberOfTheStopInRoute;
     private  LatLng[] mBusStoplatLngs;
     private String [] mBusStopName;
 
-    public static int BusBell = 0;
-    public static int RouteId = 0;
+    private static String busNumber = "";
+    private static String BusStopLocationId = "";
+
+    private static int BusBell = 0;
+    private static int RouteId = 0;
     List<BusStopOnTheRouteParameter> result= new ArrayList<BusStopOnTheRouteParameter>();
 
     @Override
@@ -87,6 +88,9 @@ public class ClickButtonsToCallBus extends AppCompatActivity implements OnMapRea
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .build();
+        Bundle bundle = getIntent().getExtras();
+        busNumber = bundle.getString("busNumber");
+        BusStopLocationId = bundle.getString("BusStopLocationId");
 
 
         final ImageView normalCall = findViewById(R.id.normalCall);
@@ -97,6 +101,11 @@ public class ClickButtonsToCallBus extends AppCompatActivity implements OnMapRea
                 RouteId = result.get(0).getmBusId();
                 Intent intent = new Intent();
                 intent.setClass(ClickButtonsToCallBus.this, NormalCall.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("BusStopLocationId",BusStopLocationId);
+                bundle1.putInt("BusBell", BusBell);
+                bundle1.putInt("RouteId", RouteId);
+                intent.putExtras(bundle1);
                 startActivity(intent);
             }
         });
@@ -108,6 +117,11 @@ public class ClickButtonsToCallBus extends AppCompatActivity implements OnMapRea
                 RouteId = result.get(0).getmBusId();
                 Intent intent = new Intent();
                 intent.setClass(ClickButtonsToCallBus.this, Help.class);
+                Bundle bundle2 = new Bundle();
+                bundle2.putString("BusStopLocationId",BusStopLocationId);
+                bundle2.putInt("BusBell", BusBell);
+                bundle2.putInt("RouteId", RouteId);
+                intent.putExtras(bundle2);
                 startActivity(intent);
             }
         });
@@ -353,8 +367,6 @@ public class ClickButtonsToCallBus extends AppCompatActivity implements OnMapRea
             if (urls.length < 1 || urls[0] == null ){
                 return null;
             }
-            String busNumber;
-            busNumber = CallTheBus_directly.getmBusName();
             Log.i(LOG_TAG,busNumber);
             urls[0] = urls[0]+ busNumber;
             Log.i(LOG_TAG, urls[0]);

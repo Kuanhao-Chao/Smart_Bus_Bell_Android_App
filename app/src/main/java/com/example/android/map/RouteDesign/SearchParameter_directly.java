@@ -12,9 +12,11 @@ public class SearchParameter_directly {
     private String mTo;
     private String mEndNameZh;
     private String mSartName;
+    private String mStartStopLocationId;
+//    private String mRouteId;
 
 
-    public SearchParameter_directly ( String EstimateTime_us, String Number_us, String From_us, String To_us, String EndNameZh_us, String SartName_us){
+    public SearchParameter_directly ( String EstimateTime_us, String Number_us, String From_us, String To_us, String EndNameZh_us, String SartName_us, String StartStopLocationId_us){
 
         mEstimateTime = EstimateTime_us;
         mNumber = Number_us;
@@ -23,6 +25,8 @@ public class SearchParameter_directly {
         mTo = To_us;
         mEndNameZh = EndNameZh_us;
         mSartName = SartName_us;
+        mStartStopLocationId = StartStopLocationId_us;
+//        mRouteId = RouteId;
     }
     String getmEstimateTime (){return mEstimateTime;}
     String getmNumber() {return mNumber;}
@@ -31,4 +35,6 @@ public class SearchParameter_directly {
     String getmTo() { return mTo;}
     String getmEndNameZh() { return  mEndNameZh;}
     String getmSartName(){ return mSartName;}
+    String getmStartStopLocationId() { return mStartStopLocationId; }
+//    String getmRouteId(){ return mRouteId; }
 }

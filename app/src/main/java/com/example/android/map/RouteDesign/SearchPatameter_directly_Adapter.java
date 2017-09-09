@@ -30,11 +30,21 @@ public class SearchPatameter_directly_Adapter extends ArrayAdapter<SearchParamet
         TextView busNumber = listItemView.findViewById(R.id.IDBusNumberDirectly);
         busNumber.setText(currentSearch_directly.getmNumber());
 
+        TextView busInWard = listItemView.findViewById(R.id.IDinWordDirectly);
+        busInWard.setText("往");
+
         TextView busToDirectly = listItemView.findViewById(R.id.IDtoDirectly);
         busToDirectly.setText(currentSearch_directly.getmTo());
 
+
+        TextView busStart = listItemView.findViewById(R.id.IDStartDirectly);
+        busStart.setText("起站:");
+
         TextView busStartDirectlyStop = listItemView.findViewById(R.id.IDStartDirectlyStop);
         busStartDirectlyStop.setText(currentSearch_directly.getmSartName());
+
+        TextView busEnd = listItemView.findViewById(R.id.IDEndDirectly);
+        busEnd.setText("目的:");
 
         TextView busEndDirectlyStop = listItemView.findViewById(R.id.IDEndDirectlyStop);
         busEndDirectlyStop.setText(currentSearch_directly.getmEndNameZh());

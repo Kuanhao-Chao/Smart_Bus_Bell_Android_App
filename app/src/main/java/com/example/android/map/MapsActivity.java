@@ -71,7 +71,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final String KEY_LOCATION = "location";
     /////////////////////////////////////////////////////////////////////for the map
 
-    public static int shareBusStopLocationId;
+    private static String shareBusStopLocationId;
     public static double mcurrentLatitude;
     public static double mcurrentLongitude;
     private LatLng mCurrentLoation_location;
@@ -140,7 +140,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .build();
-        txtOutput = findViewById(R.id.txtOutput);
+//        txtOutput = findViewById(R.id.txtOutput);
         allBusStop = SetJSONToArrayList.extractJsonfrom(MapsActivity.this);
         //above are for the map
 
@@ -150,16 +150,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mBusStop3_marker = new MarkerOptions().position(mBusStop3_location).title("Bus stop 3");//.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher));
         mBusStop4_marker = new MarkerOptions().position(mBusStop4_location).title("Bus stop 4");//.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher));*/
 
-        TextView callTheBus = findViewById(R.id.IDcallTheBus_button);
-        callTheBus.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent callTheBus = new Intent();
-                callTheBus.setClass(MapsActivity.this, CallTheBus_directly.class);
-                startActivity(callTheBus);
-            }
-        }));
-        callTheBus.setClickable(buttonChecker);
+//        TextView callTheBus = findViewById(R.id.IDcallTheBus_button);
+//        callTheBus.setOnClickListener((new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent callTheBus = new Intent();
+//                callTheBus.setClass(MapsActivity.this, CallTheBus_directly.class);
+//                startActivity(callTheBus);
+//            }
+//        }));
+//        callTheBus.setClickable(buttonChecker);
         //the onclickeListener for the call the bus right away button
 
 
@@ -269,7 +269,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onLocationChanged(Location location){
         Log.i(LOG_TAG, location.toString());
-        txtOutput.setText(Double.toString(location.getLatitude()));
+//        txtOutput.setText(Double.toString(location.getLatitude()));
         mcurrentLatitude = location.getLatitude();     //to show the latitude of the current location
         mcurrentLongitude = location.getLongitude();   //to show the longitude of the current location
         mCurrentLoation_location = new LatLng(mcurrentLatitude, mcurrentLongitude);
@@ -542,12 +542,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
     public ClusterManager.OnClusterItemClickListener<Cluster> mClusterItemClickListener
-            = new ClusterManager.OnClusterItemClickListener<Cluster>() {
+            =
+            new ClusterManager.OnClusterItemClickListener<Cluster>() {
         @Override
         public boolean onClusterItemClick(Cluster item) {
-            shareBusStopLocationId = Integer.parseInt(item.getTag());
+
+            shareBusStopLocationId = item.getTag();
+
             Intent busList = new Intent();
             busList.setClass(MapsActivity.this, CallTheBus_directly.class);
+            busList.putExtra("shareBusStopLocationId", shareBusStopLocationId);
             startActivity(busList);
             return false;
         }

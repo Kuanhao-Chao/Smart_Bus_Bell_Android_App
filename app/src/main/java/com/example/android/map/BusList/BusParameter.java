@@ -1,6 +1,5 @@
 package com.example.android.map.BusList;
 
-import java.util.ArrayList;
 
 /**
  * Created by Howard on 2017/7/15.

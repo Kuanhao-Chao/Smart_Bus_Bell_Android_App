@@ -38,19 +38,32 @@ public class SearchParameter_google_Adapter extends ArrayAdapter<SearchParameter
         busNumber.setText(currentSearch_google.getgNumber());
 
         TextView busToGoogle = listItemView.findViewById(R.id.IDinWordGoogle);
-        busToGoogle.setText(currentSearch_google.getgTo());
+        busToGoogle.setText("往");
+
+        TextView busTo = listItemView.findViewById(R.id.IDTo);
+        busTo.setText(currentSearch_google.getgTo());
 
         TextView busStartGoogle = listItemView.findViewById(R.id.IDStartGoogleStop);
         busStartGoogle.setText(currentSearch_google.getgStartBusName());
 
+        TextView busStart = listItemView.findViewById(R.id.IDStartGoogle);
+        busStart.setText("起站:");
+
         TextView busEndGoogleStop = listItemView.findViewById(R.id.IDEndGoogleStop);
         busEndGoogleStop.setText(currentSearch_google.getgEndBusName());
 
-        TextView busEstimateTime = listItemView.findViewById(R.id.IDMinuteGoogle);
-        busEstimateTime.setText(currentSearch_google.getgEndBusName());
+        TextView busEnd = listItemView.findViewById(R.id.IDEndGoogle);
+        busEnd.setText("目的:");
 
-        TextView busInstructionConstant = listItemView.findViewById(R.id.IDInstructionContent);
-        busInstructionConstant.setText(currentSearch_google.getgInstruction());
+        TextView busEstimateTime = listItemView.findViewById(R.id.IDMinuteGoogle);
+        busEstimateTime.setText(currentSearch_google.getgEstimateTime());
+
+        TextView busInstructionConstant = listItemView.findViewById(R.id.IDInstruction);
+        busInstructionConstant.setText("指示:");
+
+        TextView busInstructionContent = listItemView.findViewById(R.id.IDInstructionContent);
+        busInstructionContent.setText(currentSearch_google.getgInstruction());
+
 
         return listItemView;
     }

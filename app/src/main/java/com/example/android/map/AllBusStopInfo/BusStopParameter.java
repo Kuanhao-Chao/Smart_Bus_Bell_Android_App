@@ -1,6 +1,5 @@
 package com.example.android.map.AllBusStopInfo;
 
-import com.example.android.map.BusList.BusParameter;
 import com.google.android.gms.maps.model.LatLng;
 
 /**

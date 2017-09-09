@@ -3,7 +3,6 @@ package com.example.android.map.Buttons;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.example.android.map.BusList.BusParameter;
 import com.example.android.map.BusList.QueryUtils;
 
 import org.json.JSONArray;

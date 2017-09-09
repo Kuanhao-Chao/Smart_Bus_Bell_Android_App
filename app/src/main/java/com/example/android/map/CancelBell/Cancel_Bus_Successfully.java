@@ -16,9 +16,6 @@ import com.example.android.map.R;
 
 import java.util.List;
 
-import static com.example.android.map.BusList.CallTheBus_directly.BusStopLocationId;
-import static com.example.android.map.Buttons.ClickButtonsToCallBus.BusBell;
-import static com.example.android.map.Buttons.ClickButtonsToCallBus.RouteId;
 
 /**
  * Created by Howard on 2017/7/21.
@@ -28,10 +25,20 @@ public class Cancel_Bus_Successfully extends AppCompatActivity {
 
     private String LOG_TAG = CallTheBus_directly.class.getSimpleName();
     private static final String CANCEL_URL_REQUEST = "http://192.168.0.110:5000/cancel/";
+
+    private static String BusStopLocationId = "";
+    private static int BusBell = 0;
+    private static int RouteId = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cancel_bus_successful);
+        Bundle bundle = getIntent().getExtras();
+        BusStopLocationId = bundle.getString("BusStopLocationId");
+        BusBell = bundle.getInt("BusBell");
+        RouteId = bundle.getInt("RouteId");
+
         TextView succeedCallBus = findViewById(R.id.IDcancellTheBus_textview);
         Button cancelButtonDisable = findViewById(R.id.IDcancellTheBus_button);
         cancelButtonDisable.setOnClickListener(new View.OnClickListener() {

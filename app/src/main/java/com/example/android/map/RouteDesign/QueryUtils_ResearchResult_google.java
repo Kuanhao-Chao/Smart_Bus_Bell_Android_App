@@ -137,10 +137,12 @@ public final class QueryUtils_ResearchResult_google {
                 //int getRouteId = elementsWrapper.getInt("routeId");
                 String getFrom = elementsWrapper.getString("from");
                 String getTo = elementsWrapper.getString("to");
+//                String getRouteId = elementsWrapper.getString("routeId");
                 String getTransfer_times = elementsWrapper.getString("transfer_times");
                 JSONObject start = elementsWrapper.getJSONObject("start");
                 String getStartName = start.getString("name");
-                JSONObject startLocation = start.getJSONObject("location");
+                String getStartStopLocationId = start.getString("stopLocationId");
+//                JSONObject startLocation = start.getJSONObject("location");
 //                double getStartLatitude = startLocation.getDouble("lat");
 //                double getStartLongitude = startLocation.getDouble("lng");
                 JSONObject end = elementsWrapper.getJSONObject("end");
@@ -152,7 +154,7 @@ public final class QueryUtils_ResearchResult_google {
 
                 SearchParameter_Google searchParameter_google = new SearchParameter_Google(getEstimateTime,
                         getBusNumber, getFrom, getTo, getTransfer_times, getStartName,
-                        getEndName, getInstruction);
+                        getEndName, getInstruction, getStartStopLocationId);
 
                 GoogleList.add(searchParameter_google);
             }

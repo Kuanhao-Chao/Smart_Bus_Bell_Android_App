@@ -16,10 +16,12 @@ public class SearchParameter_Google {
     private String gStartBusName;
     private String gEndBusName;
     private String gInstruction;
+    private String gBusStopLocationId;
+//    private String gRouteId;
 
     public SearchParameter_Google(String EstimateTime_g, String Number_g, String From_g,
                                   String To_g, String Transfer_Time_g, String StartBusName_g,
-                                  String EndBusName_g , String Instruction){
+                                  String EndBusName_g , String Instruction, String BusStopLocationId){
         gEstimateTime = EstimateTime_g;
         gNumber = Number_g;
         //gRoutId = RoutId_g; //use to find the bus route
@@ -33,6 +35,8 @@ public class SearchParameter_Google {
 //        gEndLongitude = EndLongitude_g;
         gEndBusName = EndBusName_g;
         gInstruction = Instruction;
+//        gRouteId = RoutId;
+        gBusStopLocationId = BusStopLocationId;
     }
 
     String getgEstimateTime() {return gEstimateTime;}
@@ -48,4 +52,6 @@ public class SearchParameter_Google {
 //    double getgEndLongitude() {return  gEndLongitude;}
     String getgEndBusName() {return  gEndBusName;}
     String getgInstruction() {return  gInstruction;}
+//    String getgRouteId() { return  gRouteId; }
+    String getgBusStopLocationId () { return gBusStopLocationId; }
 }

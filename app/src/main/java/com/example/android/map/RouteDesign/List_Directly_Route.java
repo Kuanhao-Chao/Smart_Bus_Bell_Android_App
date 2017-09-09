@@ -1,5 +1,6 @@
 package com.example.android.map.RouteDesign;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,9 +11,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.android.map.Buttons.ClickButtonsToCallBus;
 import com.example.android.map.R;
 
 import java.util.ArrayList;
@@ -45,15 +48,14 @@ public class List_Directly_Route extends Fragment {
     private SearchPatameter_directly_Adapter mAdapter;
     private ListView callTheBusDirectlyListView;
     private static List<SearchParameter_directly> result = new ArrayList<SearchParameter_directly>();
-//    public List_Directly_Route(){};
 
-//    public List_Directly_Route(){
-//
-//    }
+    private static String busNumber = new String();
+    private static String BusStopLocationId = new String();
+    private static String RouteId = new String();
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
-        if ( view == null){
+        if (view == null){
             view = inflater.inflate(R.layout.fragment_directfragment, container, false);
         }
         else{
@@ -62,6 +64,25 @@ public class List_Directly_Route extends Fragment {
         }
 //        mAdapter = new SearchPatameter_directly_Adapter(getActivity(), new ArrayList<SearchParameter_directly>());
         answerYouEnter = UserInput;
+        callTheBusDirectlyListView = (ListView) view.findViewById(R.id.list_directly);
+        mAdapter = new SearchPatameter_directly_Adapter(getActivity(), new ArrayList<SearchParameter_directly>());
+        callTheBusDirectlyListView.setAdapter(mAdapter);
+        callTheBusDirectlyListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
+//                RouteId = result.get((int)id).getmRouteId();
+                busNumber = result.get((int)id).getmNumber();
+                BusStopLocationId = result.get((int)id).getmStartStopLocationId();
+                Intent intent = new Intent(getActivity(), ClickButtonsToCallBus.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("RouteId", RouteId);
+                bundle.putString("BusStopLocationId",BusStopLocationId);
+                bundle.putString("busNumber",busNumber);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
         getCallTheBusDirectlyListView();
         return view;
     }
@@ -97,7 +118,7 @@ public class List_Directly_Route extends Fragment {
         protected  void onPostExecute(List<SearchParameter_directly> data ){
 //            data = new SearchParameter(null, null);
 //            data = result;
-                mAdapter = new SearchPatameter_directly_Adapter(getActivity(), new ArrayList<SearchParameter_directly>());
+//                mAdapter = new SearchPatameter_directly_Adapter(getActivity(), new ArrayList<SearchParameter_directly>());
 //                mAdapter.clear();
 //            if ( data != null ){
 //                List<SearchParameter_Google>data_of_google_route = new ArrayList<SearchParameter_Google>();
@@ -106,7 +127,7 @@ public class List_Directly_Route extends Fragment {
                 //data_of_google_route = result.getmSearchParameter_google();
 //                mAdapter.addAll(data);
 //
-                callTheBusDirectlyListView = (ListView) getActivity().findViewById(R.id.list_directly);
+//                callTheBusDirectlyListView = (ListView) getActivity().findViewById(R.id.list_directly);
                 mAdapter = new SearchPatameter_directly_Adapter(getActivity(), result);
 //            mAdapter.notifyDataSetChanged();
 //            mAdapter.notifyDataSetInvalidated();
