@@ -1,9 +1,8 @@
 # Smart Bell to Get on Bus
 
-/*****************************************
-*Created by Kuan-Hao,Chao
-*Time: July 2017
-*****************************************/
+### Created by Kuan-Hao,Chao
+### Time: July 2017
+
 
 This project is created in 2017 HackNTU.
 This is the user-ended app.
